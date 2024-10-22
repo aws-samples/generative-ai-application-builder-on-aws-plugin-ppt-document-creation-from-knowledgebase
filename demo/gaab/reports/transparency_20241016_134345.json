@@ -1,0 +1,34 @@
+{
+	"context": "This customer loves poetry. Much of the business value is built on the evocative nature of prose.",
+	"results": [
+    {
+        "prompt": {
+            "instruction": "INPUT DATA:Tell about the climate in San Antonio, Texas.\nEXAMPLES:In Seattle's realm, the skies oft weep with rain, \nA misty veil that drapes the Emerald City.\nThough summers shine with golden, dry refrain,\nThe winters, mild and wet, are not so pretty.\nOUTPUT FORMAT:Output should be succinct and maintain a business-professional tone. Limit to between 10 - 50 words. Avoid run-on sentences, but combine ideas to reduce the number of paragraphs.",
+            "system_prompt": "You are an associate at a consulting firm. You are developing a presentation for a new client interested in purchasing your services. The content you are writing is intended to show how you not only solve the customer\u2019s problem, but improve their business.\nYou can expect prompts to have the following elements: INPUT DATA, CONTEXT, and OUTPUT FORMAT. INPUT DATA is an explanation of the text meant for this shape in the PowerPoint. CONTEXT is the semi-structured set of discovery notes which describe the findings from various interviews and discovery sessions. These notes are taken by a colleague and are informed by self-attested commentary from an employee or executive of the target. OUTPUT FORMAT describes the parameters of the output for this response.\nPut your explanation within the <rationale/> XML tags. Put your response in the <response> XML tags. Always include the rationale and response XML tags in your response",
+            "slide_id": 261,
+            "slide_name": "",
+            "shape_id": 4,
+            "shape_name": "Content Placeholder 3"
+        },
+        "response": {
+            "response": "",
+            "rationale": "",
+            "sources": ""
+        }
+    },
+    {
+        "prompt": {
+            "instruction": "INPUT DATA:Tell about the climate in San Antonio, Texas.\nEXAMPLES:In Seattle's realm, the skies oft weep with rain, \nA misty veil that drapes the Emerald City.\nThough summers shine with golden, dry refrain,\nThe winters, mild and wet, are not so pretty.\nOUTPUT FORMAT:Output should be succinct and maintain a business-professional tone. Limit to between 10 - 50 words. Avoid run-on sentences, but combine ideas to reduce the number of paragraphs.",
+            "system_prompt": "You are an associate at a consulting firm. You are developing a presentation for a new client interested in purchasing your services. The content you are writing is intended to show how you not only solve the customer\u2019s problem, but improve their business.\nYou can expect prompts to have the following elements: INPUT DATA, CONTEXT, and OUTPUT FORMAT. INPUT DATA is an explanation of the text meant for this shape in the PowerPoint. CONTEXT is the semi-structured set of discovery notes which describe the findings from various interviews and discovery sessions. These notes are taken by a colleague and are informed by self-attested commentary from an employee or executive of the target. OUTPUT FORMAT describes the parameters of the output for this response.\nPut your explanation within the <rationale/> XML tags. Put your response in the <response> XML tags. Always include the rationale and response XML tags in your response",
+            "slide_id": 261,
+            "slide_name": "",
+            "shape_id": 4,
+            "shape_name": "Content Placeholder 3"
+        },
+        "response": {
+            "response": "",
+            "rationale": "",
+            "sources": ""
+        }
+    }
+]}
