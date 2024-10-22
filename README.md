@@ -1,4 +1,4 @@
-## My Project
+## generative-ai-application-builder-on-aws-plugin-ppt-document-creation-from-knowledgebase
 
 TODO: Fill this README out!
 
