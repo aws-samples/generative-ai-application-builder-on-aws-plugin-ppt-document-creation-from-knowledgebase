@@ -4,13 +4,154 @@ This sample code explains how to create a powerpoint (ppt) document from Bedrock
 
 Note: This is not a production ready code base, but should rather be used for testing and proof of concepts.
 
-TODO: Fill this README out!
-TEST
+### Bi Sheng
 
-Be sure to:
+Bi Sheng was an inventor during Song dynasty China. He invented the world's first movable type printing press. Movable 
+type printing presses use pre-set tiles to form characters, words, sentences, and pages of text. In the same way, 
+Bisheng enables users to take pre-set language model prompts to form textual responses for standard text artifacts. If
+used correctly, Bisheng can take a standard document like a PowerPoint template and generate contextually relevant and 
+situationally specific copies. 
 
-* Change the title in this README
-* Edit your repository description on GitHub
+## Table of Contents
+1. [Prerequisites](#-prerequisites)
+2. [Installation](#-installation)
+3. [Getting Started](#-getting-started)
+4. [Prompting](#-prompting)
+    - [System Prompts](#system-prompts)
+    - [Generate Prompts](#generate-prompts)
+    - [Shots](#shots)
+    - [Context](#context)
+5. [Configuration](#configuration)
+    - [Engines](#engine)
+    - [Encoders](#encoders-)
+    - [Decoders](#decoders)
+  
+
+
+## ✨ Prerequisites
+- Python 3.11+
+- AWS Account with Amazon Bedrock Access
+- A PowerPoint that you own and can edit
+  - Must not contain PII, PHI, or any other sensitive data
+- A structurally identical copy of the previous PowerPoint
+  - Text can change, but text boxes, slides, and objects must not be modified
+  - Must not contain PII, PHI, or any other sensitive data
+- A TXT file containing context about the topic which you are printing
+  - Must not contain PII, PHI, or any other sensitive data
+
+## ✨ Installation
+* Download the repository and navigate to the bi-sheng directory:
+* Create a virtual env `python -m venv .` or for Python3 `virtualenv -p python3 venv`
+* Activate the virtual env `source venv/bin/activate`
+* Install dependencies `pip install -r requirements.txt`
+* Install bisheng with  `pip install -e .`
+
+## ✨ Getting Started
+* Open the `bisheng.yaml` config file in demo/gaab and replace the engine section's aws_profile, aws_region, and endpoint_url fields with relevant configuration information.
+* Run `bisheng run --config-dir ./demo/gaab` and the content will be populated in ./demo/gaab/Output.pptx. 
+
+
+## ✨ Prompting
+By default, Bisheng offers a single-shot prompt template that assumes unstructured context is applied to contextualize 
+the request. There are two kinds of prompts supported by bisheng, System prompts and Generate prompts.
+
+### System Prompts
+System prompts are stored in the speaker notes for each slide. They are characterized by the &lt;SYSTEM&gt; tag, and behave as
+system prompts to a large language model. System prompts are specific to each slide, therefore each slide gets its own 
+role, motivation, voice, etc. Here is an example system prompt:
+
+> &lt;SYSTEM&gt;You are a solutions architect your primary task is to develop marketing material in the form of customer 
+references. Your primary job is to take the text you read and re-word it, summarize it, and generally modify it to 
+address particular business outcomes. In the absence of concrete business outcomes, adhere to a default tone and 
+diction fitting a business-professional context. Keep responses simple and unstructured, avoiding common templates like 
+e-mail or instant message. Where possible, lean on the output format specified in the prompt. Absent this, keep 
+responses short, not to exceed the word count in the instruction. It is perfectly acceptable to respond with the 
+unaltered prompt where appropriate. Put your explanation within the &lt;rationale/&gt; XML tags. Put your response in 
+the &lt;response/&gt; XML tags. You can expect prompts to have the following elements: INPUT DATA, CONTEXT, and OUTPUT 
+FORMAT. The input data is what you're being asked to do. The context is background information on the customer or 
+scenario you're performing this task for; the context contains many important pieces of information for contextualizing
+your responses. The output format describes how the output should be formatted.&lt;/SYSTEM&gt;
+
+### Generate Prompts
+Generate prompts are the actual requests made to an LLM for content generation. Generate prompts are placed within the
+text fields of your Prompts PPT. Generate prompts are characterized by &lt;GENERATE&gt; XML tags. The content between
+the tags represents what is to be generated. Optionally, a &lt;FORMAT&gt; tag can be introduced, which is meant to help
+format the model's response to suit the presentation style. Here is an example generate prompt:
+
+> &lt;GENERATE&gt;Describe the solution implemented by the customer at a high level for marketing purposes. Be sure to 
+mention to effectiveness of the solution.&lt;/GENERATE&gt; &lt;FORMAT&gt;Clean, succinct, no more than 3 sentences. 
+Keep word count below 75 words.&lt;/FORMAT&gt;
+
+### Shots
+Shots come from the PowerPoint file listed in the config under decoder > shots_path. Shots must be structurally 
+identical to the prompts PowerPoint (decoder > prompts_path). Since the structure of these two PowerPoints are the same, 
+we can take the GENERATE prompt from the prompts PPTX and match it to the corresponding text in the shots PPTX. If the
+structure of these two PowerPoints does not match up, shots from one prompt will be incorrectly applied to  a different 
+prompt. Here is an example "shot" for the previously shown GENERATE prompt:
+
+> Sample Customer developed a robust methodology to generating and evaluating potential therapeutic candidates for 
+COVID-19. Utilizing AWS generative AI and compute services and proprietary datasets, models, and evaluation techniques, 
+they produced approximately 1,000 potential nanobody candidates specifically targeting a single COVID-19 antigen. The 
+rapid development of 1,000 candidate drug formulations enabled Sample Customer to accelerate their drug development 
+lifecyle.
+
+### Context
+Shots come from the PowerPoint file listed in the config under decoder > context_path. The context is unstructured text.
+This text is passed to each prompt by default to contextualize the request with information specific to this printing 
+job. The context is what grounds 
+
+> Sample Customer wants to create more complex proteins like nanobodies and antibodies to help with drug discovery.
+Generating valid nanobody candidates with the right characteristics is a complex, expensive, specialized and
+ time-consuming task. Generative AI creates an opportunity to apply human-reasoning to drug discovery tasks at scale,
+ fundamentally modifying the approach to drug discovery.
+>
+> Sample Customer developed a robust methodology to generating and evaluating potential therapeutic candidates for COVID-19.
+Utilizing AWS generative AI and compute services and proprietary datasets, models, and evaluation techniques, they
+produced approximately 1,000 potential nanobody candidates specifically targeting a single COVID-19 antigen. The rapid
+development of 1,000 candidate drug formulations enabled Sample Customer to accelerate their drug development lifecyle.
+>
+> Sample Customer developed a generative AI powered methodology that generated around 1,000 valid nanobody candidates
+for a single COVID-19 antigen. These results exceeded the project goal of 80% accuracy within the accelerated delivery
+timeline.
+>
+> The primary challenge was ensuring generated text remained coherent and relevant to the input prompt. To overcome this,
+Sample Customer leveraged a context-aware, memory-enabled language model that considered the entire conversation history
+and user inputs. Additionally, Sample Customer fine-tuned the language model on domain-specific data to improve its
+understanding of the subject matter.
+>
+> The project spanned 6 weeks, with the initial 2 weeks focused on data preparation and model development. The remainder
+of the engagement included the implementation of custom tokenization strategies, an evaluation framework, and the
+deployment of a language model for antigen identification.
+
+## Configuration
+There are three components to the Bisheng configuration file. The Engine defines the generative AI component servicing 
+each prompt. The Encoders define how prompt responses are written out for consumption. The Decoders convert business 
+artifacts into prompts for LLMs.
+
+### Engine
+Currently, there are two engine types supported: `bedrock` and `gaab`. The `bedrock` engine prompts Bedrock directly. 
+The `gaab` engine prompts Bedrock through an instance of the AWS Generative AI Application Builder. Each engine type has
+their own configuration requirements.
+
+### Decoders
+Currently, only one type of decoder is supported: `one-shot-pptx-with-context`. This decoder simply decodes from a 
+PowerPoint file. This section is under constructed and is likely to change in the near-term.
+
+### Encoders 
+There are two types of encoder: `transparency-report` and `pptx`. The `transparency-report` is required, and it writes
+all prompts and responses to a JSON file in the specific location. This is done by default and the application should 
+not work if the `transparency-report` is missing from the config. The `pptx` encoder encodes model responses to a 
+specified output PowerPoint. 
+
+[//]: # (## 📚 Documentation)
+
+[//]: # (## 👏 Contributors)
+
+[//]: # (<a href="https://gitlab.aws.dev/frgud/bisheng/graphs/contributors">)
+
+[//]: # (  <img src="https://contrib.rocks/image?repo=aws-samples/bisheng" />)
+
+[//]: # (</a>)
 
 ## Security
 
