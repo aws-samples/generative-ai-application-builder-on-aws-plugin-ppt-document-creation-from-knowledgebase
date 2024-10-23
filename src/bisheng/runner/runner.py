@@ -201,6 +201,15 @@ class Runner(BaseModel):
         if os.path.exists(config_path):
             logger.error(f"Config already exists at {config_dir}")
             raise FileExistsError
+        else:
+            os.makedirs(config_dir)
+
+        config_path = os.path.join(config_dir or os.getcwd(), filename)
+        logger.debug(f"Set configuration path to {config_path}")
+
+        if os.path.exists(config_path):
+            logger.error(f"Config already exists at {config_dir}")
+            raise FileExistsError
 
         with open(config_path, "w") as stream:
             logger.debug(f"Writing default config with engine type {engine_type}...")
