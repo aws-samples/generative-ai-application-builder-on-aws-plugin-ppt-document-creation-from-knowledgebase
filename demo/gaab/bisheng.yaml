@@ -1,0 +1,24 @@
+engine:
+  type: gaab
+  ws_url: ${WS_URL}
+  app_client_id: ${APP_CLIENT_ID}
+  user_name: ${USER_NAME}
+  password: ${PASSWORD}
+  aws_profile: ${AWS_PROFILE}
+  aws_region: ${AWS_REGION}
+  endpoint_url: https://bedrock.${AWS_REGION}.amazonaws.com
+  max_retry: 10
+  retry_mode: adaptive
+encoders:
+  - type: transparency-report
+    report_dir: demo/gaab/reports
+  - type: pptx
+    path: demo/gaab/Output.pptx
+    append: false
+decoder:
+  type: one-shot-pptx-with-context
+  prompts_path: demo/gaab/Prompts.pptx
+  shots_path: demo/gaab/Shots.pptx
+  context_path: demo/gaab/Context.txt
+  instruction:
+    type: one-shot-with-context
