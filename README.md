@@ -18,13 +18,12 @@ situationally specific copies.
 2. [Installation](#-installation)
 3. [Getting Started](#-getting-started)
 4. [Getting GAAB websocket url](#get-gaab-websocket-endpoint-url)
-
-4. [Prompting](#-prompting)
+5. [Prompting](#-prompting)
    - [System Prompts](#system-prompts)
    - [Generate Prompts](#generate-prompts)
    - [Shots](#shots)
    - [Context](#context)
-5. [Configuration](#configuration)
+6. [Configuration](#configuration)
    - [Engines](#engine)
    - [Encoders](#encoders-)
    - [Decoders](#decoders)
@@ -53,9 +52,13 @@ situationally specific copies.
 
 **Step 1**: Clone the repository.
 
-**Step 2** Go to ./demp/gaab folder and update the `bisheng.yaml` config file with aws_profile, aws_region, and endpoint_url fields with relevant configuration information.
+**Step 2** Place the powerpoint document in ./demo/gaab folder as Prompts.pptx, Shots.pptx, Output.pptx
 
-**Step 3** Run `bisheng run --config-dir ./demo/gaab` and the Output content will be populated in ./demo/gaab/Output.pptx file.
+**Step 3** In Prompts.pptx file, add the prompts and format in `<Generate>` `</Generate>` and `<format>` `</format>` tags.
+
+**Step 4** Go to ./demo/gaab folder and update the `bisheng.yaml` config file with aws_profile, aws_region, Cognito App ClientID and [endpoint_url](../README.md#get-gaab-websocket-endpoint-url)  fields with relevant configuration information.
+
+**Step 5** Run `bisheng run --config-dir ./demo/gaab` and the Output content will be populated in ./demo/gaab/Output.pptx file.
 
 ## ✨ Get GAAB websocket endpoint url
 
@@ -79,6 +82,8 @@ situationally specific copies.
 6. Look for entries in the Network tab that start with "ws://" or "wss://"
 
 7. Click on the WebSocket connection to see more details, including the full URL
+
+   ![websocket](./websocket.png)
 
 ## ✨ Prompting
 
