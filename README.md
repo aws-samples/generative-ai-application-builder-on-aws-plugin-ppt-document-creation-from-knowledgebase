@@ -15,17 +15,16 @@ situationally specific copies.
 ## Table of Contents
 
 1. [Prerequisites](#-prerequisites)
-2. [Architecture](#architecture)
-3. [Installation](#-installation)
-4. [Getting Started](#-getting-started)
-5. [Getting GAAB websocket url](#-getting-gaab-websocket-endpoint-url)
-6. [Getting Cognito App ClientID](#getting-cognito-app-clientid) 
-7. [Prompting](#-prompting)
+2. [Installation](#-installation)
+3. [Getting Started](#-getting-started)
+4. [Getting GAAB websocket url](#-getting-gaab-websocket-endpoint-url)
+5. [Getting Cognito App ClientID](#getting-cognito-app-clientid) 
+6. [Prompting](#-prompting)
    - [System Prompts](#system-prompts)
    - [Generate Prompts](#generate-prompts)
    - [Shots](#shots)
    - [Context](#context)
-8. [Configuration](#configuration)
+7. [Configuration](#configuration)
    - [Engines](#engine)
    - [Encoders](#encoders)
    - [Decoders](#decoders)
@@ -43,9 +42,6 @@ situationally specific copies.
   - Must not contain PII, PHI, or any other sensitive data
 
 **Note: Assuming you have [Generative AI Application Builder deployment dashboard and Text use case UI](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/) deployed**
-
-## ✨ Architecture
-
 
 
 ## ✨ Installation
