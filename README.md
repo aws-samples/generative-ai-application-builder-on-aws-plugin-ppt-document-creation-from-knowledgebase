@@ -1,10 +1,10 @@
-## generative-ai-application-builder-on-aws-plugin-ppt-document-creation-from-knowledgebase
+# Powerpoint (ppt) document generation from knowledgebase using Generative AI Application Builder
 
 This sample code explains how to create a powerpoint (ppt) document from Bedrock/Kendra Knowledgebase based on a predefined powerpoint template for the "Generative AI Application Builder on AWS" solution. https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/
 
 Note: This is not a production ready code base, but should rather be used for testing and proof of concepts.
 
-# Bi Sheng
+### Bi Sheng
 
 Bi Sheng was an inventor during Song dynasty China. He invented the world's first movable type printing press. Movable
 type printing presses use pre-set tiles to form characters, words, sentences, and pages of text. In the same way,
