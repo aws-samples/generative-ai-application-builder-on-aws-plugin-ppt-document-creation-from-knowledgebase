@@ -1,1 +1,1 @@
-This customer loves poetry. Much of the business value is built on the evocative nature of prose.
+This customer loves poetry.  A good portion of their internal documentation is written in prose.  Prose is the preferred form of communication for this customer.
