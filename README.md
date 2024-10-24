@@ -17,7 +17,7 @@ situationally specific copies.
 1. [Prerequisites](#-prerequisites)
 2. [Installation](#-installation)
 3. [Getting Started](#-getting-started)
-4. [Getting GAAB websocket url](#get-gaab-websocket-endpoint-url)
+4. [Getting GAAB websocket url](#-get-gaab-websocket-endpoint-url)
 5. [Prompting](#-prompting)
    - [System Prompts](#system-prompts)
    - [Generate Prompts](#generate-prompts)
@@ -25,7 +25,7 @@ situationally specific copies.
    - [Context](#context)
 6. [Configuration](#configuration)
    - [Engines](#engine)
-   - [Encoders](#encoders-)
+   - [Encoders](#encoders)
    - [Decoders](#decoders)
 
 ## ✨ Prerequisites
@@ -56,7 +56,7 @@ situationally specific copies.
 
 **Step 3** In Prompts.pptx file, add the prompts and format in `<Generate>` `</Generate>` and `<format>` `</format>` tags.
 
-**Step 4** Go to ./demo/gaab folder and update the `bisheng.yaml` config file with aws_profile, aws_region, Cognito App ClientID and [endpoint_url](../README.md#get-gaab-websocket-endpoint-url)  fields with relevant configuration information.
+**Step 4** Go to ./demo/gaab folder and update the `bisheng.yaml` config file with aws_profile, aws_region, Cognito App ClientID and [endpoint_url](../README.md#-get-gaab-websocket-endpoint-url)  fields with relevant configuration information.
 
 **Step 5** Run `bisheng run --config-dir ./demo/gaab` and the Output content will be populated in ./demo/gaab/Output.pptx file.
 
@@ -174,17 +174,17 @@ Currently, there are two engine types supported: `bedrock` and `gaab`. The `bedr
 The `gaab` engine prompts Bedrock through an instance of the AWS Generative AI Application Builder. Each engine type has
 their own configuration requirements.
 
-### Decoders
-
-Currently, only one type of decoder is supported: `one-shot-pptx-with-context`. This decoder simply decodes from a
-PowerPoint file. This section is under constructed and is likely to change in the near-term.
-
 ### Encoders
 
 There are two types of encoder: `transparency-report` and `pptx`. The `transparency-report` is required, and it writes
 all prompts and responses to a JSON file in the specific location. This is done by default and the application should
 not work if the `transparency-report` is missing from the config. The `pptx` encoder encodes model responses to a
 specified output PowerPoint.
+
+### Decoders
+
+Currently, only one type of decoder is supported: `one-shot-pptx-with-context`. This decoder simply decodes from a
+PowerPoint file. This section is under constructed and is likely to change in the near-term.
 
 ### Contributors
 
