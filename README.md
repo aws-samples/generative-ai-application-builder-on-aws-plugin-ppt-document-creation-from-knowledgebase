@@ -42,23 +42,25 @@ situationally specific copies.
 
 ## ✨ Installation
 
-- Download the repository and navigate to the bi-sheng directory:
-- Create a virtual env `python -m venv .` or for Python3 `virtualenv -p python3 venv`
-- Activate the virtual env `source venv/bin/activate`
-- Install dependencies `pip install -r requirements.txt`
-- Install bisheng with `pip install -e .`
+**Step 1**: Clone the repository and navigate to the bi-sheng directory.
+
+**Step 2**: Create a virtual env `python -m venv .` or for Python3 `virtualenv -p python3 venv`
+
+**Step 3**: Activate the virtual env `source venv/bin/activate`
+
+**Step 4**: Install dependencies `pip install -r requirements.txt`
+
+**Step 5**: Install bisheng with `pip install -e .`
 
 ## ✨ Getting Started
 
-**Step 1**: Clone the repository.
+**Step 1**: Place the powerpoint document in ./demo/gaab folder as Prompts.pptx, Shots.pptx, Output.pptx
 
-**Step 2** Place the powerpoint document in ./demo/gaab folder as Prompts.pptx, Shots.pptx, Output.pptx
+**Step 2**: In Prompts.pptx file, add the prompts and format in `<Generate>` `</Generate>` and `<format>` `</format>` tags.
 
-**Step 3** In Prompts.pptx file, add the prompts and format in `<Generate>` `</Generate>` and `<format>` `</format>` tags.
+**Step 3**: Go to ./demo/gaab folder and update the `bisheng.yaml` config file with aws_profile, aws_region, Cognito App ClientID and [websocket endpoint url](../README.md#-get-gaab-websocket-endpoint-url)  fields with relevant configuration information.
 
-**Step 4** Go to ./demo/gaab folder and update the `bisheng.yaml` config file with aws_profile, aws_region, Cognito App ClientID and [websocket endpoint url](../README.md#-get-gaab-websocket-endpoint-url)  fields with relevant configuration information.
-
-**Step 5** Run `bisheng run --config-dir ./demo/gaab` and the Output content will be populated in ./demo/gaab/Output.pptx file.
+**Step 4**: Run `bisheng run --config-dir ./demo/gaab` and the Output content will be populated in ./demo/gaab/Output.pptx file.
 
 ## ✨ Get GAAB websocket endpoint url
 
