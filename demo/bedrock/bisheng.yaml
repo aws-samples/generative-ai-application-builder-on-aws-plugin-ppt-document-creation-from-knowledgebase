@@ -1,0 +1,31 @@
+engine:
+  type: bedrock
+  aws_profile: ${AWS_PROFILE}
+  aws_region: ${AWS_REGION}
+  endpoint_url: https://bedrock.${AWS_REGION}.amazonaws.com
+  max_retry: 10
+  retry_mode: adaptive
+  model_id: anthropic.claude-3-sonnet-20240229-v1:0
+  version: bedrock-2023-05-31
+  trace: ENABLED
+  guardrail_id: None
+  guardrail_version: None
+  hyperparameters:
+    max_tokens: 30000
+    temperature: 0
+    top_p: 1
+    top_k: 250
+    role: user
+encoders:
+  - type: transparency-report
+    report_dir: demo/bedrock/reports
+  - type: pptx
+    path: demo/bedrock/Output.pptx
+    append: false
+decoder:
+  type: one-shot-pptx-with-context
+  prompts_path: demo/bedrock/Prompts.pptx
+  shots_path: demo/bedrock/Shots.pptx
+  context_path: demo/bedrock/Context.txt
+  instruction:
+    type: one-shot-with-context
