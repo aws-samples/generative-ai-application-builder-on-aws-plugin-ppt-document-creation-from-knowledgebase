@@ -56,9 +56,9 @@ situationally specific copies.
 
 ## ✨ Getting Started
 
-**Step 1**: Place the powerpoint document in ./demo/gaab folder as Prompts.pptx, Shots.pptx, Output.pptx
+**Step 1**: Place the powerpoint document in `./demo/gaab` folder as `Prompts.pptx`, `Shots.pptx`, `Output.pptx`
 
-**Step 2**: In Prompts.pptx file, add the prompts and format in `<Generate>` `</Generate>` and `<format>` `</format>` tags.
+**Step 2**: In `Prompts.pptx` file, add the prompts and format in `<Generate>` `</Generate>` and `<format>` `</format>` tags.
 
 **Step 3**: Go to ./demo/gaab folder and update the `bisheng.yaml` config file with aws_profile, aws_region, Cognito App ClientID and [websocket endpoint url](../README.md#-get-gaab-websocket-endpoint-url)  fields with relevant configuration information.
 
