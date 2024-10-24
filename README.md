@@ -56,7 +56,7 @@ situationally specific copies.
 
 **Step 3** In Prompts.pptx file, add the prompts and format in `<Generate>` `</Generate>` and `<format>` `</format>` tags.
 
-**Step 4** Go to ./demo/gaab folder and update the `bisheng.yaml` config file with aws_profile, aws_region, Cognito App ClientID and [endpoint_url](../README.md#-get-gaab-websocket-endpoint-url)  fields with relevant configuration information.
+**Step 4** Go to ./demo/gaab folder and update the `bisheng.yaml` config file with aws_profile, aws_region, Cognito App ClientID and [websocket endpoint url](../README.md#-get-gaab-websocket-endpoint-url)  fields with relevant configuration information.
 
 **Step 5** Run `bisheng run --config-dir ./demo/gaab` and the Output content will be populated in ./demo/gaab/Output.pptx file.
 
