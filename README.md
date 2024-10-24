@@ -40,6 +40,8 @@ situationally specific copies.
 - A TXT file containing context about the topic which you are printing
   - Must not contain PII, PHI, or any other sensitive data
 
+**Note: Assuming you have [Generative AI Application Builder deployment dashboard and Text use case UI](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/) deployed**
+
 ## ✨ Installation
 
 **Step 1**: Clone the repository and navigate to the bi-sheng directory.
