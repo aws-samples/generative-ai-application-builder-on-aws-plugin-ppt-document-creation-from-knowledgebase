@@ -46,7 +46,7 @@ situationally specific copies.
 
 ## ✨ Installation
 
-**Step 1**: Clone the repository and navigate to the bi-sheng directory.
+**Step 1**: Clone the repository and navigate to the repo main directory.
 
 **Step 2**: Create a virtual env `python -m venv .` or for Python3 `virtualenv -p python3 venv`
 
