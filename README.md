@@ -15,15 +15,17 @@ situationally specific copies.
 ## Table of Contents
 
 1. [Prerequisites](#-prerequisites)
-2. [Installation](#-installation)
-3. [Getting Started](#-getting-started)
-4. [Getting GAAB websocket url](#-get-gaab-websocket-endpoint-url)
-5. [Prompting](#-prompting)
+2. [Architecture](#architecture)
+3. [Installation](#-installation)
+4. [Getting Started](#-getting-started)
+5. [Getting GAAB websocket url](#-getting-gaab-websocket-endpoint-url)
+6. [Getting Cognito App ClientID](#getting-cognito-app-clientid) 
+7. [Prompting](#-prompting)
    - [System Prompts](#system-prompts)
    - [Generate Prompts](#generate-prompts)
    - [Shots](#shots)
    - [Context](#context)
-6. [Configuration](#configuration)
+8. [Configuration](#configuration)
    - [Engines](#engine)
    - [Encoders](#encoders)
    - [Decoders](#decoders)
@@ -41,6 +43,10 @@ situationally specific copies.
   - Must not contain PII, PHI, or any other sensitive data
 
 **Note: Assuming you have [Generative AI Application Builder deployment dashboard and Text use case UI](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/) deployed**
+
+## ✨ Architecture
+
+
 
 ## ✨ Installation
 
@@ -60,13 +66,19 @@ situationally specific copies.
 
 **Step 2**: In `Prompts.pptx` file, add the prompts and format in `<Generate>` `</Generate>` and `<format>` `</format>` tags.
 
-**Step 3**: Go to ./demo/gaab folder and update the `bisheng.yaml` config file with aws_profile, aws_region, Cognito App ClientID and [websocket endpoint url](../README.md#-get-gaab-websocket-endpoint-url)  fields with relevant configuration information.
+**Step 3**: Go to ./demo/gaab folder and update the `bisheng.yaml` config file with aws_profile, aws_region, [Cognito App ClientID](../README.md#-get-gaab-websocket-endpoint-url)  and [websocket endpoint url](../README.md#-get-gaab-websocket-endpoint-url)  fields with relevant configuration information.
 
 **Step 4**: Run `bisheng run --config-dir ./demo/gaab` and the Output content will be populated in ./demo/gaab/Output.pptx file.
 
-## ✨ Get GAAB websocket endpoint url
+## ✨ Getting Cognito App Client ID
 
-1. Open the GAAB Text Use case UI.
+1. Go to Text Use Case CloudFormation stack deployment from [Generative AI Application Builder solution](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/)
+
+2. Go to Resources tab and then search for Cognito, then get the value of `WebsocketRequestProcessorUseCaseCognitoSetupCfnAppClientXXXXXXXX`
+
+## ✨ Getting GAAB websocket endpoint url
+
+1. Open the GAAB Text Use Case UI.
 
 2. Open Developer Tools:
 
