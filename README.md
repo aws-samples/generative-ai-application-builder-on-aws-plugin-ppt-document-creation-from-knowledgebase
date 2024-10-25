@@ -1,4 +1,4 @@
-# Powerpoint (ppt) document generation from knowledgebase using Generative AI Application Builder on AWS
+# PowerPoint (ppt) document generation from knowledgebase using Generative AI Application Builder on AWS
 
 This sample code explains how to create a powerpoint (ppt) document from Bedrock/Kendra Knowledgebase based on a predefined powerpoint template for the "Generative AI Application Builder on AWS" solution. https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/
 
