@@ -58,6 +58,14 @@ situationally specific copies.
 
 ## ✨ Getting Started
 
+You can generate PowerPoint documents in 2 ways. 
+
+1. Using [Generative AI Application Builder on AWS](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/) Solution (OR)
+2. [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html). 
+
+
+### 1. Using [Generative AI Application Builder on AWS](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/) Solution
+
 **Step 1**: Place the powerpoint document in `./demo/gaab` folder as `Prompts.pptx`, `Shots.pptx`, `Output.pptx`
 
 **Step 2**: In `Prompts.pptx` file, add the prompts and format in `<Generate>` `</Generate>` and `<format>` `</format>` tags.
@@ -96,6 +104,17 @@ situationally specific copies.
 7. Click on the WebSocket connection to see more details, including the full URL
 
    ![websocket](./websocket.png)
+
+
+### 2. Using [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html)
+
+**Step 1**: Place the powerpoint document in `./demo/bedrock` folder as `Prompts.pptx`, `Shots.pptx`, `Output.pptx`
+
+**Step 2**: In `Prompts.pptx` file, add the prompts and format in `<Generate>` `</Generate>` and `<format>` `</format>` tags.
+
+**Step 3**: Go to ./demo/bedrock folder and update the `bisheng.yaml` config file with aws_profile, aws_region, bedrock endpoint url fields with relevant configuration information.
+
+**Step 4**: Run `bisheng run --config-dir ./demo/bedrock` and the Output content will be populated in ./demo/bedrock/Output.pptx file.
 
 ## ✨ Prompting
 
