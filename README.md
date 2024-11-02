@@ -219,8 +219,9 @@ PowerPoint file. This section is under constructed and is likely to change in th
 
 ### Contributors
 
-**Dan Ferguson**\
-**Sreedevi Velagala**
+**Sreedevi Velagala**\
+**Dan Ferguson**
+
 
 [//]: # "## 📚 Documentation"
 [//]: # "## 👏 Contributors"
